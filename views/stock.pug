@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    div(class="p-5 mx-5 my-5 bg-light rounded-3")
+        div(class="container-fluid py-5")
+            h1(class="display-5 fw-bold")= stock.companyName + " (" + stock.symbol + ")"
+            p(class="col-md-8 fs-4")
+                strong= "Latest Price: "
+                label= stock.latestPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                br
+                strong= "Latest Volume: "
+                label= stock.latestVolume.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                br
+                strong= "Previous Volume: "
+                label= stock.previousClose.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                br
+                strong= "Change Percent: "
+                label= (stock.changePercent * 100).toFixed(4) + "%"
+                br
+                strong= "Market Cap: "
+                label= stock.marketCap.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                br
+                strong= "YTD Change: "
+                label= (stock.ytdChange * 100).toFixed(4) + "%"
+                br
+                strong= "52 Week High: "
+                label= stock.week52High.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+                br
+                strong= "52 Week Low: "
+                label= stock.week52Low.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+
+
+        //ul
+        //    each val, key in stock
+        //        li=key + ": " + val
